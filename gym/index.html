@@ -1137,10 +1137,7 @@ main{padding:14px 16px 0}
   if(window.ResizeObserver) new ResizeObserver(measureTop).observe($('#topWrap'));
   setInterval(function(){ if(R.state==='run') tick(); },1000);
 
-  if(!S.logs[todayKey()]) {
-    var st0=sessionStats(S.session);
-    if(st0.sets>0) $('#doneBtn').textContent='오늘 기록 저장됨 ✓ (다시 누르면 수정)';
-  }
+  if(S.logs[todayKey()]) $('#doneBtn').textContent='오늘 기록 저장됨 ✓ (다시 누르면 수정)';
   document.addEventListener('visibilitychange',function(){
     if(!document.hidden&&R.state==='run') tick();
   });

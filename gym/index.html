@@ -62,7 +62,7 @@ h1,h2,h3,p{margin:0}
 .sumRow{display:flex;gap:7px;padding:0 18px 11px}
 .sum{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:7px 4px 6px;text-align:center;box-shadow:var(--shadow)}
 .sum b{display:block;font-size:15.5px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-0.03em}
-.sum span{display:block;font-size:9.5px;color:var(--ink2);font-weight:600;margin-top:1px;letter-spacing:-0.03em}
+.sum span{display:block;font-size:10px;color:var(--ink2);font-weight:600;margin-top:1px;letter-spacing:-0.03em}
 
 /* ---------- panels ---------- */
 main{padding:14px 16px 0}
@@ -142,14 +142,14 @@ main{padding:14px 16px 0}
 .exHead{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:11px}
 .exName{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0}
 .exName h3{font-size:15px;font-weight:800;letter-spacing:-0.035em;line-height:1.25}
-.pill{font-size:9.5px;font-weight:800;color:var(--ink2);background:#F6F1E9;padding:3px 7px;border-radius:999px;white-space:nowrap;letter-spacing:-0.02em}
+.pill{font-size:10px;font-weight:800;color:var(--ink2);background:#F6F1E9;padding:3px 7px;border-radius:999px;white-space:nowrap;letter-spacing:-0.02em}
 .exCount{font-size:11.5px;font-weight:800;color:var(--ink3);white-space:nowrap;font-variant-numeric:tabular-nums;padding-top:2px}
 .exCount b{color:var(--sage-d);font-size:13px}
 .exCount span{color:var(--ink3)}
 
 .steppers{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:11px}
 .stp{background:#FBF8F3;border:1px solid #F2EBE0;border-radius:14px;padding:6px 6px 7px}
-.stpLbl{display:block;font-size:9.5px;font-weight:800;color:var(--ink3);text-align:center;margin-bottom:3px;letter-spacing:-0.02em}
+.stpLbl{display:block;font-size:10px;font-weight:800;color:var(--ink3);text-align:center;margin-bottom:3px;letter-spacing:-0.02em}
 .stpRow{display:flex;align-items:center;justify-content:space-between;gap:2px}
 .rd{
   width:30px;height:30px;flex:0 0 30px;border-radius:10px;border:1px solid var(--line);
@@ -168,7 +168,7 @@ main{padding:14px 16px 0}
   padding:0;transition:.16s;box-shadow:0 1px 2px rgba(120,98,74,.04);
 }
 .setBtn b{font-size:17px;font-weight:800;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
-.setBtn em{font-style:normal;font-size:9px;font-weight:700;color:var(--ink3);letter-spacing:-0.02em}
+.setBtn em{font-style:normal;font-size:9.5px;font-weight:700;color:var(--ink3);letter-spacing:-0.02em}
 .setBtn:active{transform:scale(.95)}
 .setBtn.on{background:linear-gradient(160deg,#8CAB86,#6E9070);border-color:#6E9070;box-shadow:0 4px 10px rgba(110,144,112,.3)}
 .setBtn.on b{color:#fff}
@@ -256,7 +256,7 @@ main{padding:14px 16px 0}
 .calDay.today{box-shadow:inset 0 0 0 1.5px #DCC9B2}
 .calDay.has{background:linear-gradient(160deg,#8CAB86,#6E9070);color:#fff;box-shadow:0 3px 8px rgba(110,144,112,.28)}
 .calDay.has.today{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px #7E9C7B}
-.calDay i{position:absolute;bottom:2px;font-size:7px;font-style:normal;color:rgba(255,255,255,.9)}
+.calDay i{position:absolute;bottom:4px;right:6px;font-size:6.5px;font-style:normal;color:rgba(255,255,255,.92);line-height:1}
 .calFoot{display:flex;align-items:center;justify-content:center;gap:4px;font-size:11.5px;color:var(--ink2);font-weight:700;padding:12px 0 4px;border-top:1px solid #F4EEE5;margin-top:8px}
 .calFoot b{color:var(--sage-d);font-weight:800}
 .note{margin-top:12px;padding:15px 16px}
@@ -913,7 +913,7 @@ main{padding:14px 16px 0}
     }
     if(b.id==='restAdd'){
       if(R.state==='idle'){ startRest(S.rest); return; }
-      R.dur+=15; R.endAt+=15000;
+      R.endAt+=15000;
       if(R.state==='done'){ R.state='run'; R.endAt=Date.now()+R.dur*1000; restInner.classList.remove('done'); restMsg.textContent='휴식 타이머'; clearInterval(R.iv); R.iv=setInterval(tick,200); }
       markPresets(); tick(); buzz(8);
       return;
@@ -1135,7 +1135,6 @@ main{padding:14px 16px 0}
   measureTop();
   window.addEventListener('resize',measureTop);
   if(window.ResizeObserver) new ResizeObserver(measureTop).observe($('#topWrap'));
-  setInterval(function(){ if(R.state==='run') tick(); },1000);
 
   if(S.logs[todayKey()]) $('#doneBtn').textContent='오늘 기록 저장됨 ✓ (다시 누르면 수정)';
   document.addEventListener('visibilitychange',function(){

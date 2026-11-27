@@ -601,8 +601,18 @@ main{padding:14px 16px 0}
     stretch:{label:'스트레칭',emoji:'🧘'}
   };
   var ZPOS={
-    basic:{freeweight:{x:26,y:20},machine:{x:53,y:53},cardio:{x:68,y:29},stretch:{x:57,y:76}},
-    clay:{freeweight:{x:26,y:22},machine:{x:37,y:44},cardio:{x:70,y:44},stretch:{x:50,y:73}}
+    basic:{
+      freeweight:{x:24,y:21,a:{x:33,y:30}},
+      machine:{x:44,y:37,a:{x:40,y:50}},
+      cardio:{x:72,y:26,a:{x:66,y:38}},
+      stretch:{x:58,y:80,a:{x:50,y:71}}
+    },
+    clay:{
+      freeweight:{x:19,y:25,a:{x:27,y:33}},
+      machine:{x:45,y:32,a:{x:45,y:47}},
+      cardio:{x:68,y:34,a:{x:62,y:47}},
+      stretch:{x:50,y:82,a:{x:58,y:74}}
+    }
   };
   var DEFAULTS=[
     {id:'squat',name:'스쿼트',part:'lower',zone:'freeweight',w:40,r:10,unit:'회',target:4},
@@ -750,9 +760,9 @@ main{padding:14px 16px 0}
     Array.prototype.forEach.call(zoneRow.children,function(c){
       c.classList.toggle('on',c.dataset.zone===S.activeZone);
     });
-    var p=z[S.activeZone];
-    avatar.style.left=Math.min(92,p.x+5)+'%';
-    avatar.style.top=Math.min(90,p.y+11)+'%';
+    var ap=z[S.activeZone].a||z[S.activeZone];
+    avatar.style.left=Math.min(92,ap.x)+'%';
+    avatar.style.top=Math.min(90,ap.y)+'%';
     zoneNow.textContent=ZONES[S.activeZone].label;
   }
   function setZone(k){
